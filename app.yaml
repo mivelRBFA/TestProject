@@ -1,0 +1,3 @@
+# dit bestand laat ons toe de app te configureren.
+#definieer welke runtime we willen gebruiken:
+runtime: python37
