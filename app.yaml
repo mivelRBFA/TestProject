@@ -10,3 +10,5 @@ handlers:
 - url: /.*
   secure: always
   script: auto
+
+service: svc_milanvelle
