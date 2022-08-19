@@ -4,7 +4,6 @@ runtime: python310
 
 entrypoint: gunicorn main:app -w 4 -k uvicorn.workers.UvicornWorker
 # neemt "entrypoint: gunicorn -b :$PORT main:app" als standaard als niet gedefinieerd.
-#entrypoint: gunicorn -b :$PORT main:app
 
 #definieer type van scaling (F=autoscaling)
 instance_class: F2
