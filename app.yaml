@@ -1,14 +1,18 @@
 # dit bestand laat ons toe de app te configureren.
 #definieer welke runtime we willen gebruiken:
-runtime: python37
+runtime: python310
+
+entrypoint: gunicorn main:app -w 4 -k uvicorn.workers.UvicornWorker
+# neemt "entrypoint: gunicorn -b :$PORT main:app" als standaard als niet gedefinieerd.
+#entrypoint: gunicorn -b :$PORT main:app
 
 #definieer type van scaling (F=autoscaling)
 instance_class: F2
 
 #Hoe URL patronen verwerkt moeten worden
 handlers:
-- url: /.*
-  secure: always
-  script: auto
+- url: /
+#  secure: always
+  script: main.app
 
 service: svc-milanvelle
