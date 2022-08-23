@@ -15,7 +15,7 @@ async def read_root():
 @app.get("/bq_insert_timestamp")
 async def read_root():
     now = datetime.now()
-    my_dict = {'Timestamp': str(now)}
+    my_dict = {'Timestamp': f"(now)"}
     row_to_insert = [my_dict]
     bq_client = bigquery.Client()
     table = bq_client.get_table("{}.{}.{}".format("rbfa-workshop-sandboxes", "timestamps_milan", "timestamps"))
