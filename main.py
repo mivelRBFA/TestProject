@@ -3,7 +3,6 @@ from datetime import datetime
 from google.cloud import bigquery
 from google.cloud import storage
 
-
 app = FastAPI()
 
 @app.get("/")
@@ -40,6 +39,7 @@ async def upload_file():
     file_path = r'C:\Users\mivel.ext\Documents\PyCharm_Projecten\TestProject\log.txt'
     blob.upload_from_filename(file_path)
     return {"logfile with new timestamp uploaded to bucket"}
+
 
 
 
