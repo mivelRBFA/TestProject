@@ -35,7 +35,7 @@ async def upload_file():
     f.close()
     storage_client = storage.Client()
     my_bucket = storage_client.get_bucket('rbfa-workshop-sandboxes-milanvelle')
-    blob = my_bucket.blob('Timestamps/log')
+    blob = my_bucket.blob('Timestamps/'+str(now))
     file_path = r'C:\Users\mivel.ext\Documents\PyCharm_Projecten\TestProject\log.txt'
     blob.upload_from_filename(file_path)
     return {"logfile with new timestamp uploaded to bucket"}
