@@ -27,6 +27,7 @@ async def read_root():
         return {f"{now} not inserted in bigquery table"}
 
 
+
 @app.get("/file_to_bucket")
 async def upload_file():
     now = datetime.now()
@@ -39,3 +40,4 @@ async def upload_file():
     file_path = r"C:\Users\mivel.ext\Documents\PyCharm_Projecten\TestProject\log.txt"
     blob.upload_from_filename(file_path)
     return {"logfile with new timestamp uploaded to bucket"}
+
