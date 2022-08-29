@@ -1,10 +1,8 @@
 from datetime import datetime
-
 from fastapi import FastAPI
 from google.cloud import bigquery, storage
-
+import tempfile
 app = FastAPI()
-
 
 @app.get("/")
 async def read_root():
@@ -30,12 +28,10 @@ async def read_root():
 @app.get("/file_to_bucket")
 async def upload_file():
     now = datetime.now()
-    f = open("log.txt", "a")
-    f.write(f"{now}" + "\n")
-    f.close()
     storage_client = storage.Client()
     my_bucket = storage_client.get_bucket("rbfa-workshop-sandboxes-milanvelle")
     blob = my_bucket.blob("Timestamps/" + f"{now}")
-    file_path = r"C:\Users\mivel.ext\Documents\PyCharm_Projecten\TestProject\log.txt"
-    blob.upload_from_filename(file_path)
-    return {"logfile with new timestamp uploaded to bucket"}
+    tf=tempfile.NamedTemporaryFile(mode='w+b',suffix='.csv', prefix=now.strftime('%d-%m-%y--%H-%M-%S'),delete=False)
+    tf.close()
+    blob.upload_from_filename(tf.name)
+    return {"temp file uploaded bucket folder that contains timestamp"}
