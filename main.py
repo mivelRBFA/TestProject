@@ -25,6 +25,7 @@ async def read_root():
         return {f"{now} not inserted in bigquery table"}
 
 
+
 @app.get("/file_to_bucket")
 async def upload_file():
     now = datetime.now()
