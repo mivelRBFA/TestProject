@@ -2,9 +2,10 @@ import tempfile
 from datetime import datetime
 
 from fastapi import FastAPI
-from google.cloud import bigquery, storage, datastore
+from google.cloud import bigquery, datastore, storage
 
 app = FastAPI()
+
 
 @app.get("/")
 async def read_root():
@@ -52,8 +53,6 @@ async def update_entity_datastore():
     name = "Timestamp"
     timestamp_key = client.key(kind, name)
     timestamp = datastore.Entity(key=timestamp_key)
-    timestamp["Timestamp"] = f'{now}'
+    timestamp["Timestamp"] = f"{now}"
     client.put(timestamp)
-    return {'entity updated to ' + f'{now}'}
-
-
+    return {"entity updated to " + f"{now}"}
