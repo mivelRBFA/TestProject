@@ -6,7 +6,7 @@ from main import app
 
 
 @app.get("/bq_insert_timestamp")
-async def read_root():
+async def bq_insert():
     now = datetime.now()
     my_dict = {"Timestamp": f"The Timestamp is {now}"}
     row_to_insert = [my_dict]
