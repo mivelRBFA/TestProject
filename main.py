@@ -1,6 +1,8 @@
-from fastapi import FastAPI
+import tempfile
 from datetime import datetime
-from google.cloud import bigquery
+
+from fastapi import FastAPI
+from google.cloud import bigquery, storage
 
 app = FastAPI()
 
@@ -24,3 +26,20 @@ async def read_root():
         return {f"{now} inserted in bigquery table"}
     else:
         return {f"{now} not inserted in bigquery table"}
+
+
+@app.get("/file_to_bucket")
+async def upload_file():
+    now = datetime.now()
+    storage_client = storage.Client()
+    my_bucket = storage_client.get_bucket("rbfa-workshop-sandboxes-milanvelle")
+    blob = my_bucket.blob("Timestamps/" + f"{now}")
+    tf = tempfile.NamedTemporaryFile(
+        mode="w+b",
+        suffix=".csv",
+        prefix=now.strftime("%d-%m-%y--%H-%M-%S"),
+        delete=False,
+    )
+    tf.close()
+    blob.upload_from_filename(tf.name)
+    return {"temp file uploaded bucket folder that contains timestamp"}
