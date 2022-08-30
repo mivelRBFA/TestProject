@@ -56,3 +56,4 @@ async def update_entity_datastore():
     timestamp["Timestamp"] = f"{now}"
     client.put(timestamp)
     return {"entity updated to " + f"{now}"}
+
