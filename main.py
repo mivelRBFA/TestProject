@@ -2,7 +2,7 @@ import tempfile
 from datetime import datetime
 
 from fastapi import FastAPI
-from google.cloud import bigquery, storage
+from google.cloud import bigquery, datastore, storage
 
 app = FastAPI()
 
@@ -43,3 +43,17 @@ async def upload_file():
     tf.close()
     blob.upload_from_filename(tf.name)
     return {"temp file uploaded bucket folder that contains timestamp"}
+
+
+@app.get("/update_entity_in_datastore")
+async def update_entity_datastore():
+    now = datetime.now()
+    client = datastore.Client()
+    kind = "Task"
+    name = "Timestamp"
+    timestamp_key = client.key(kind, name)
+    timestamp = datastore.Entity(key=timestamp_key)
+    timestamp["Timestamp"] = f"{now}"
+    client.put(timestamp)
+    return {"entity updated to " + f"{now}"}
+
