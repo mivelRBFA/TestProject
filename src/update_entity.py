@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 
 from google.cloud import datastore
 
@@ -7,7 +7,7 @@ from main import app
 
 @app.get("/update_entity_in_datastore")
 async def update_entity_datastore():
-    now = datetime.now()
+    now = datetime.now() + timedelta(hours=2)
     client = datastore.Client()
     kind = "Task"
     name = "Timestamp"
