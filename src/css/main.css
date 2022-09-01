@@ -1,0 +1,17 @@
+body {
+    background-image: url(images/logo.jpg);
+    background-color: #d3d3d3;
+    background-position: top right;
+    font-family: arial;
+    text-align: center;
+}
+
+.logo{
+    height: 80px;
+    margin: 0px 0px 0px 20px;
+    padding: 10px 0px 0px 0px;
+}
+
+a:hover{
+    color: #000000;
+}
