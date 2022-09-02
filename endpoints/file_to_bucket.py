@@ -1,17 +1,20 @@
 import tempfile
-from datetime import datetime, timedelta
+import zoneinfo
+from datetime import datetime
 
-from google.cloud import storage
+from google.cloud import storage  # type: ignore
 
 from main import app
 
 
 @app.get("/file_to_bucket")
 async def upload_file():
-    now = datetime.now() + timedelta(hours=2)
+    a = zoneinfo.ZoneInfo("Europe/Brussels")
+    now = datetime.now()
+    now_bxl = now.astimezone(a)
     storage_client = storage.Client()
     my_bucket = storage_client.get_bucket("rbfa-workshop-sandboxes-milanvelle")
-    blob = my_bucket.blob("Timestamps/" + f"{now}")
+    blob = my_bucket.blob("Timestamps/" + f"{now_bxl}")
     tf = tempfile.NamedTemporaryFile(
         mode="w+b",
         suffix=".csv",
