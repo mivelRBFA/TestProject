@@ -1,3 +1,5 @@
 [flake8]
 exclude = venv
-per-file-ignores = main.py: F401, E402
+per-file-ignores =
+    main.py: F401, E402
+    .\Google_CLoud_Functions\main.py: E501, F841

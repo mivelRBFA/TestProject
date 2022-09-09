@@ -2,7 +2,6 @@ import zoneinfo
 from datetime import datetime
 
 from google.cloud import bigquery
-
 from main import app
 
 
