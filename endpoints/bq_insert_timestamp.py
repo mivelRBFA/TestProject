@@ -6,7 +6,7 @@ from google.cloud import bigquery
 from main import app
 
 
-@app.get("/bq_insert_timestamp")
+@app.post("/bq_insert_timestamp")
 async def bq_insert():
     a = zoneinfo.ZoneInfo("Europe/Brussels")
     now = datetime.now()
