@@ -7,7 +7,7 @@ from google.cloud import storage  # type: ignore
 from main import app
 
 
-@app.get("/file_to_bucket")
+@app.post("/file_to_bucket")
 async def upload_file():
     a = zoneinfo.ZoneInfo("Europe/Brussels")
     now = datetime.now()
