@@ -6,7 +6,7 @@ from google.cloud import datastore
 from main import app
 
 
-@app.get("/update_entity_in_datastore")
+@app.put("/update_entity_in_datastore")
 async def update_entity_datastore():
     a = zoneinfo.ZoneInfo("Europe/Brussels")
     now = datetime.now()
