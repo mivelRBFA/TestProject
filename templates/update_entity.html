@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', path='/css/main.css') }}" />
+        <link rel="stylesheet" href="{{ url_for('static', path='/css/Homepage.css') }}" />
+        <script>
+            function changetimestamp() {
+                document.getElementById('timestamp').innerHTML = "changed timestamp"
+            }
+
+        </script>
+    </head>
+
+    <body onload="changetimestamp()">
+    <h1>Workshop RBFA <img class="logo" src="{{ url_for('static', path='/images/logo.jpg') }}" alt="logo rbfa"> </h1>
+    <h2>Datastore </h2>
+    <p> Entity updated to <span id="timestamp">#(current timestamp)</span>! <a href="http://127.0.0.1:8000/">Return to homepage</a></p>
+    </body>
+</html>

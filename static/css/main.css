@@ -4,6 +4,7 @@ body {
     background-position: top right;
     font-family: arial;
     text-align: center;
+    background-image: url('kdb.jpg')
 }
 
 .logo{
@@ -15,3 +16,4 @@ body {
 a:hover{
     color: #000000;
 }
+

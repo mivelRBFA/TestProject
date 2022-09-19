@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', path='/css/main.css') }}" />
+        <link rel="stylesheet" href="{{ url_for('static', path='/css/Homepage.css') }}" />
+        <script>
+            function startTime() {
+                var today=new Date();
+                var day = today.getDate();
+                var month = today.getMonth();
+                var year = today.getFullYear();
+                var h=today.getHours();
+                var m=today.getMinutes();
+                var s=today.getSeconds();
+                m = checkTime(m);
+                s = checkTime(s);
+                document.getElementById('txt').innerHTML = "Date: " + day + "/" + month + "/" + year + " " + "Clock: " + h+":"+m+":"+s;
+                var t = setTimeout(function(){startTime()},500);
+            }
+
+            function checkTime(i) {
+                if (i<10) {i = "0" + i};  // add zero in front of numbers < 10
+                return i;
+            }
+        </script>
+    </head>
+
+    <body onload="startTime()">
+    <h1>Workshop RBFA <img class="logo" src="{{ url_for('static', path='/images/logo.jpg') }}" alt="logo rbfa"> </h1>
+    <h2>Current time</h2>
+    <p id="txt"></p>
+    <h2>BigQuery</h2>
+    <p><a href="http://127.0.0.1:8000/bq_insert_timestamp">Insert current timestamp</a> into a BigQuery Table</p>
+    <h2>Cloud Storage</h2>
+    <p><a href="http://127.0.0.1:8000/file_to_bucket"> Insert a file</a> into a bucket which name is the current time</p>
+    <h2>Datastore </h2>
+    <p><a href="http://127.0.0.1:8000/update_entity_in_datastore">Update</a> the entity to the current timestamp</p>
+    </body>
+</html>
