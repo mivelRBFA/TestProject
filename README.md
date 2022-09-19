@@ -13,6 +13,15 @@ Goals of the project
 4. Upload file to cloud storage bucket (with current timestamp)
 5. Update entity in Datastore (change timestamp to current timestamp)
 
+Imprtant files and why we use them
+----------------------------------
+1. README.md:
+2. requirements.txt: 
+3 .gitignore:
+4. mypy.ini:
+5. .flake8:
+
+
 Used tools and how to use them
 ------------------------------
 ### pre-commits 
