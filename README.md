@@ -27,7 +27,7 @@ Therefore it is too much work to keep track of every modification in the package
 
 Used tools and how to use them
 ------------------------------
-1. pre-commits black and isort: a pre-commit is done before we commit certain changes to our local repo. We can add multiple one or more hooks to our pre-commit config file. This way certain rules are being checked before it is too late. 
+1. *pre-commits black and isort*: a pre-commit is done before we commit certain changes to our local repo. We can add multiple one or more hooks to our pre-commit config file. This way certain rules are being checked before it is too late. 
 To know more about pre-commit, or to check which hooks are available, go to https://pre-commit.com/.
 Black is a Python code formatter. Check https://github.com/psf/black for more information on Black. 
 Isort is a Python utility / library to sort imports alphabetically, and automatically separated into sections and by type. Check https://github.com/PyCQA/isort to know more about Isort. 
