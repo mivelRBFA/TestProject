@@ -3,8 +3,8 @@ Workshop RBFA
 
 Introduction
 ------------
-This repository is an onboarding project at the Royal Belgian Football Association. The main goal of tis workshop is to learn how to use some basic functionalities of teh Google Cloud Platform like Bigquery, Storage and Datastore.
-An API is written in Python using FastAPI. For each of the different endpoint, a seperate file is created.  
+The repository is an onboarding project for developers joining the RBFA dev team. The main goal of this workshop is to learn how to use some basic functionalities of the Google Cloud Platform like Bigquery, Storage and Datastore.
+An API is written in Python using FastAPI. For each of the different endpoints, a seperate file is created.  
 
 Goals of the project
 --------------------
