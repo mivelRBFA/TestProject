@@ -3,7 +3,7 @@ Workshop RBFA
 
 Introduction
 ------------
-This repository was made during the onboarding at the Royal Belgian Football Association. The main goal of tis workshop is to learn how to use some basic functionalities of teh Google Cloud Platform like Bigquery, Storage and Datastore.
+This repository is an onboarding project at the Royal Belgian Football Association. The main goal of tis workshop is to learn how to use some basic functionalities of teh Google Cloud Platform like Bigquery, Storage and Datastore.
 An API is written in Python using FastAPI. For each of the different endpoint, a seperate file is created.  
 
 Goals of the project
@@ -30,10 +30,10 @@ Used tools and how to use them
 1. **pre-commits black and isort**: a pre-commit is done before we commit certain changes to our local repo. We can add multiple one or more hooks to our pre-commit config file. This way certain rules are being checked before it is too late. 
 To know more about pre-commit, or to check which hooks are available, go to https://pre-commit.com/.
 Black is a Python code formatter. Check https://github.com/psf/black for more information on Black. 
-Isort is a Python utility / library to sort imports alphabetically, and automatically separated into sections and by type. Check https://github.com/PyCQA/isort to know more about Isort. 
+Isort is a Python utility / library to sort imports, and automatically separate them into sections by type. Check https://github.com/PyCQA/isort to know more about Isort. 
 We can run our pre-commit hooks by typing this command in the root of our project: 
 ```console
-~$ pre-commit
+~$ pre-commit run --all-files
 ```
 
 2. **mypy**: Mypy is an optional static type checker for Python that aims to combine the benefits of dynamic typing and static typing. See https://pypi.org/project/mypy/ for more info. 
