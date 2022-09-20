@@ -1,10 +1,9 @@
 import requests
 
-
 home = "https://svc-milanvelle-dot-rbfa-workshop-sandboxes.ew.r.appspot.com"
-one = home+"/bq_insert_timestamp"
-two = home+"/file_to_bucket"
-three = home+"/update_entity_in_datastore"
+one = home + "/bq_insert_timestamp"
+two = home + "/file_to_bucket"
+three = home + "/update_entity_in_datastore"
 
 
 def call_all_endpoints(request):
