@@ -3,7 +3,7 @@ Workshop RBFA
 
 Introduction
 ------------
-This repository was made during an internship at the Royal Belgian Football Association. The main goal of tis workshop is to learn how to use some basic functionalities of teh Google Cloud Platform like Bigquery, Storage and Datastore.
+This repository was made during the onboarding at the Royal Belgian Football Association. The main goal of tis workshop is to learn how to use some basic functionalities of teh Google Cloud Platform like Bigquery, Storage and Datastore.
 An API is written in Python using FastAPI. For each of the different endpoint, a seperate file is created.  
 
 Goals of the project
@@ -31,14 +31,25 @@ Used tools and how to use them
 To know more about pre-commit, or to check which hooks are available, go to https://pre-commit.com/.
 Black is a Python code formatter. Check https://github.com/psf/black for more information on Black. 
 Isort is a Python utility / library to sort imports alphabetically, and automatically separated into sections and by type. Check https://github.com/PyCQA/isort to know more about Isort. 
-We can run our pre-commit hooks by typing 'pre-commit' in the root of our project. 
+We can run our pre-commit hooks by typing this command in the root of our project: 
+```console
+~$ pre-commit
+```
 
 2. **mypy**: Mypy is an optional static type checker for Python that aims to combine the benefits of dynamic typing and static typing. See https://pypi.org/project/mypy/ for more info. 
-We can run for all files by typing 'mypy .' in the root of our project. 
+We can run for all files by typing this command in the root of our project:
+```console
+~$ mypy .
+```
 
 3. **flake8**: flake8 is  wrapper wich verifies pep8, which is a convention for Python coding. 
-We can run flake8 for all files by typing 'flake8' in the root of the project. 
+We can run flake8 for all files by typing this command in the root of the project: 
+```console
+~$ flake8
+```
 
 4. **functions framework**: Google's function framework is made to give developpers the opportunity to test their Google Cloud Functions before they deploy them. Check https://cloud.google.com/functions/docs/functions-framework for more information. 
-After installation, run your functions localy by typing 'functions-framework --target=<name_of_function> --port=8080'
-
+After installation, run your functions localy by typing this command:
+```console
+~$ functions-framework --target=<name_of_function> --port=8080
+```
