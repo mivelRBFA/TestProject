@@ -6,6 +6,7 @@ from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 from fastapi import Request
 from pathlib import Path
+import zoneinfo
 
 from main import app
 app.mount("/static", StaticFiles(directory=Path(__file__).parent.parent.absolute() / "static"), name="static")
@@ -13,12 +14,20 @@ templates = Jinja2Templates(directory="templates")
 
 @app.get("/bq_insert_timestamp", response_class=HTMLResponse)
 async def bq_insert(request: Request):
-    now = datetime.now() + timedelta(hours=2)
+    a = zoneinfo.ZoneInfo("Europe/Brussels")
+    now_dt = datetime.now()
+    now = now_dt.astimezone(a)
     my_dict = {"Timestamp": f"The Timestamp is {now}"}
     row_to_insert = [my_dict]
     bq_client = bigquery.Client()
     table = bq_client.get_table("rbfa-workshop-sandboxes.timestamps_milan.timestamps")
     errors = bq_client.insert_rows_json(table, row_to_insert)
+
+    @app.get("/timestamp_get_bq")
+    async def timestamp_get_bq(request: Request):
+        now_str = str(now.hour) + ':' + str(now.minute) + ':' + str(now.second) + ' on ' + str(now.day) + '/' + str(now.month) + '/' + str(now.year)
+        return now_str
+
     if errors == []:
         return templates.TemplateResponse("bq_insert_timestamp.html", {"request": request})
     else:

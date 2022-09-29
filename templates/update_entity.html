@@ -7,11 +7,20 @@
             function changetimestamp() {
                 document.getElementById('timestamp').innerHTML = "changed timestamp"
             }
-
+            function loadDoc() {
+                  var xhttp = new XMLHttpRequest();
+                  xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                     document.getElementById("timestamp").innerHTML = this.responseText;
+                    }
+                  };
+                  xhttp.open("GET", "timestamp_get_update", true);
+                  xhttp.send();
+            }
         </script>
     </head>
 
-    <body onload="changetimestamp()">
+    <body onload="loadDoc()">
     <h1>Workshop RBFA <img class="logo" src="{{ url_for('static', path='/images/logo.jpg') }}" alt="logo rbfa"> </h1>
     <h2>Datastore </h2>
     <p> Entity updated to <span id="timestamp">#(current timestamp)</span>! <a href="http://127.0.0.1:8000/">Return to homepage</a></p>
